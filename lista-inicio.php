@@ -48,33 +48,3 @@ else
     }
     
 }
-/*
-$form = <<<EOT
-<div class="card gedf-card">
-<div class="card-header">
-    <div class="d-flex justify-content-between align-items-center">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="ml-2">
-                <div class="h5 m-0">@{$linha["login"]}</div><!--Nome do usuario aqui-->
-            </div>
-        </div>
-        <div>
-        <div class="dropdown">
-            <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-ellipsis-h"></i>
-            </button>
-        </div>
-    </div>
-</div>
-</div>
-    <div class="card-body">
-        <a class="card-link" href="#">
-            <h5 class="card-title">Titulooo</h5>
-                </a>
-                    {$linha["texto"]}<!--textooooo-->
-                    <img src='./upload/jpeg-{$linha["caminho"]}' class='rounded mx-auto d-block'><!--fotoooooo-->
-    </div>
-</div>
-</div>
-EOT;
-*/

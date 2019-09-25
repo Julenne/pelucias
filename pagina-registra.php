@@ -1,5 +1,5 @@
 <?php
-include 'pagina-form.php';
+
 error_reporting(E_ALL & ~ E_NOTICE);   
 
 $login = $_COOKIE['nome'];
@@ -105,8 +105,7 @@ $c = mysqli_connect($host,$usuario,$senha);
     }
     else
     {
-        $var = "<script>javascript:history.back(-2)</script>";
-        echo $var;
+        header("location: lista-inicio.php?login=".$login);
         //adiciona + uma publicação
     }
     //imagedestroy($imagem); 
