@@ -1,3 +1,4 @@
 # pelucias
-Rede social de bichinhos de peluciA
-A página de inicio é o login-form.php
+Pagina Estática disponível aqui: https://julenne.github.io/pelucias/
+
+Rede social de fotos de bichinhos de pelúcia.
