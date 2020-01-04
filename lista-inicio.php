@@ -1,5 +1,6 @@
 <?php
 include "pagina-form.php";
+
 $login = $_COOKIE['nome'];
 $host = "localhost";
 $usuario = "root";
