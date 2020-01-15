@@ -87,7 +87,7 @@ if(!mysqli_select_db($c,$banco))
     die();
 }    
 $sql2 = "SELECT login FROM usuario WHERE ident='$ident'";
-echo "$ident";
+//echo "$ident";
 $resp2 = mysqli_query($c,$sql2);
     
 $n = mysqli_num_rows($resp2);
