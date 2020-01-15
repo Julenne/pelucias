@@ -1,12 +1,13 @@
 <?php
 error_reporting(E_ALL & ~ E_NOTICE);
-setcookie("nome",$_GET['login']);
+setcookie("ident",$_GET['login']);
 $form = <<<EOT
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="utf-8">
+        <title>Pelúcias! - Página Inicial </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -51,8 +52,8 @@ $form = <<<EOT
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
             
-    <nav class="navbar navbar-dark bg-dark">
-            <a href="#" class="navbar-brand" >Pelúcias!</a>
+    <nav class="navbar  " style='background-color: #6e0bca;'>
+            <a href="#" class="navbar-brand" style='color:black;font-weight: bold;'>Pelúcias!</a>
         </nav>
 
 
@@ -96,7 +97,7 @@ $form = <<<EOT
                             </div>
                             <div class="btn-toolbar justify-content-between">
                                 <div class="btn-group">
-                                    <button type="submit" class="btn btn-primary">Compartilhar</button>
+                                    <button type="submit" class="btn btn-primary" style='background-color: #6e0bca;'>Compartilhar</button>
                                 </div>
                                 
                             </div>

@@ -4,7 +4,7 @@ $form = <<<EOT
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Pelúcias!</title>
+	<title>Pelúcias! - Registra</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -57,7 +57,7 @@ $form = <<<EOT
 					</div>
 
 					<div class="container-login100-form-btn m-t-17">
-						<input type="submit" class="login100-form-btn" value=Registrar>
+						<input type="submit" class="login100-form-btn" value=Cadastrar>
 					</div>
 
 				</form>

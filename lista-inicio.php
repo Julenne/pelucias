@@ -1,10 +1,9 @@
 <?php
-include "pagina-form.php";
+$ident = $_GET['login'];
 
-$login = $_COOKIE['nome'];
 $host = "localhost";
-$usuario = "root";
-$senha = "";
+$usuario = "arlene";
+$senha = "banco1234";
 $banco = "pelucia";
 
 $c = mysqli_connect($host,$usuario,$senha);
@@ -24,28 +23,35 @@ if(!mysqli_select_db($c,$banco))
     die();
 }
 
-$sql = "SELECT * FROM fotos";
+$sql2 = "SELECT ident FROM usuario WHERE ident='$ident'";
+$sql = "SELECT * FROM fotos order by caminho desc";
 
 $resp = mysqli_query($c, $sql);
+$resp2 = mysqli_query($c, $sql2);
 
-if(!$resp)
-{
-    echo "erro na consulta $sql";
-    echo mysqli_error($c);
-    mysqli_close($c);
-    die();
-}
-else
-{
-    $linha = mysqli_fetch_assoc($resp);
-    if($linha)
+$n= mysqli_num_rows($resp2);
+if($n>0){
+    include "pagina-form.php";
+    if(!$resp)
     {
-        while($linha)
-        {
-            include "publi-form.php";
-            $linha = mysqli_fetch_assoc($resp);     
-        }
-        
+        echo "erro na consulta $sql";
+        echo mysqli_error($c);
+        mysqli_close($c);
+        die();
     }
-    
+    else
+    {
+        $linha = mysqli_fetch_assoc($resp);
+        if($linha)
+        {
+            while($linha)
+            {
+                include "publi-form.php";
+                $linha = mysqli_fetch_assoc($resp);
+            }    
+        }
+    }
+} else {
+    header("location:erro.html");
 }
+

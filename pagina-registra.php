@@ -1,14 +1,20 @@
 <?php
 
-error_reporting(E_ALL & ~ E_NOTICE);   
+ error_reporting(E_ALL & ~ E_NOTICE);   
 
-$login = $_COOKIE['nome'];
+$ident = $_COOKIE['ident'];
 $texto = $_POST["texto"];
 $id_foto = $_POST["id_foto"];
 //Pega os dados do upload
 $imagemTipo = $_FILES['arquivo']['type'];
 $imagem = $_FILES['arquivo']['tmp_name'];
 $imagemNome = $_FILES['arquivo']['name'];
+
+$host = "localhost";
+$usuario = "arlene";
+$senha = "banco1234";
+$banco = "pelucia";
+$c = mysqli_connect($host,$usuario,$senha);
 
 function extensaoImagem($img,$imagemLocal){//nome do arquivo
     switch($img){
@@ -66,35 +72,41 @@ imagecopyresized($destino, $enviada, 0, 0, $xi, $yi, $wf, $wf, $wi, $wi);
 //$imagemEnviada = imagecreatefromjpeg($imagem);
 imagejpeg($enviada,"./upload/jpeg-$imagemNome",70);
 
+if(!$c)
+{
+    echo "erro na conexão";
+    echo mysqli_error($c);
+    die();
+}
+ 
+if(!mysqli_select_db($c,$banco))
+{
+    echo "erro no select_db";
+    echo mysqli_error($c);
+    mysqli_close($c);
+    die();
+}    
+$sql2 = "SELECT login FROM usuario WHERE ident='$ident'";
+echo "$ident";
+$resp2 = mysqli_query($c,$sql2);
+    
+$n = mysqli_num_rows($resp2);
+if($n > 0){
+    $linha = mysqli_fetch_assoc($resp2);
+    if($linha){
+        $login = $linha['login'];
+    }
+}
+
 if(empty($id_contato))
 {
     $sql = "INSERT INTO fotos(texto,caminho,login) VALUES ('$texto','./upload/jpeg-$imagemNome','$login')"; 
     //echo "esse é o nome: $imagemNome";
+    
 }
 
-$host = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "pelucia";
-$c = mysqli_connect($host,$usuario,$senha);
-
-    if(!$c)
-    {
-        echo "erro na conexão";
-        echo mysqli_error($c);
-        die();
-    }
- 
-    if(!mysqli_select_db($c,$banco))
-    {
-        echo "erro no select_db";
-        echo mysqli_error($c);
-        mysqli_close($c);
-        die();
-    }
- 
     $resp = mysqli_query($c, $sql);
- 
+    
     if(!$resp)
     {
         echo "erro na consulta $sql";
@@ -105,7 +117,8 @@ $c = mysqli_connect($host,$usuario,$senha);
     }
     else
     {
-        header("location: lista-inicio.php?login=".$login);
+        header("location: lista-inicio.php?login=".$ident);
         //adiciona + uma publicação
     }
     //imagedestroy($imagem); 
+

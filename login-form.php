@@ -54,13 +54,6 @@ $form = <<<EOT
 					</div>
 					
 					<div class="flex-sb-m w-full p-t-3 p-b-24">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
 						<div>
 							<a href="registra-form.php" class="txt1">
 								Não possui cadastro?

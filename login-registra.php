@@ -4,15 +4,16 @@
     $nome = $_REQUEST['nome'];
     $login = $_REQUEST['login'];
     $senha = md5($_REQUEST['senha']);
+    $ident = rand(1111111,99999999);
 
     if(empty($id_contato))
     {
-        $sql = "INSERT INTO usuario(nome,login,senha) VALUES ('$nome','$login','{$senha}')";
+        $sql = "INSERT INTO usuario(nome,login,senha,ident) VALUES ('$nome','$login','{$senha}',$ident)";
     }
     
     $host = "localhost";
-    $usuario = "root";
-    $senha = "";
+    $usuario = "arlene";
+    $senha = "banco1234";
     $banco = "pelucia";
 
     $c = mysqli_connect($host,$usuario,$senha);
@@ -43,8 +44,6 @@
     }
     else
     {
-        header('location: lista-inicio.php?login='.$login);
+        header('location: lista-inicio.php?login='.$ident);
     }
-    //usuario de teste: brunin
-    //senha: uhu
 ?>
