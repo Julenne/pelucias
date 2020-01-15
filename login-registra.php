@@ -12,8 +12,8 @@
     }
     
     $host = "localhost";
-    $usuario = "arlene";
-    $senha = "banco1234";
+    $usuario = "root";
+    $senha = "";
     $banco = "pelucia";
 
     $c = mysqli_connect($host,$usuario,$senha);

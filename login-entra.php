@@ -7,8 +7,8 @@ $senha_usuario = $_POST["senha"];
 $senha_cod = md5($senha_usuario);
 
 $host = "localhost";
-$usuario = "arlene";
-$senha = "banco1234";
+$usuario = "root";
+$senha = "";
 $banco = "pelucia";
 
 $c = mysqli_connect($host, $usuario, $senha);

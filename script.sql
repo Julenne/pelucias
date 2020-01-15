@@ -8,5 +8,6 @@ create table usuario(
 	id_usuario  int not null primary key AUTO_INCREMENT,
     login varchar(50),
     senha varchar(50),
-    nome varchar(200)
+    nome varchar(200),
+    ident integer
 );
